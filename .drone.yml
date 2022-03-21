@@ -18,14 +18,23 @@ steps:
 
   - name: publish
     image: plugins/docker:18
-    auto_tag: true
-#    auto_tag_suffix: linux-amd64
-    dockerfile: Dockerfile
-    repo: dierbei/drone-demo
-    username:
-      from_secret: docker_username
+    settings:
+      dockerfile: Dockerfile
+      username:
+        from_secret: docker_username
       password:
         from_secret: docker_password
+      repo: dierbei/drone-demo
+      tags:
+        - latest
+        - '1.0.1'
+        - '1.0'
+#    auto_tag: true
+#    tags: latest
+#    auto_tag_suffix: linux-amd64
+
+#    repo: dierbei/drone-demo
+
 
 trigger:
   branch:
