@@ -17,12 +17,12 @@ steps:
 
   - name: publish
     image: plugins/docker
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
     settings:
       dockerfile: Dockerfile
-      username:
-        from_secret: docker_username
-      password:
-        from_secret: docker_password
       repo: dierbei/drone-demo
       tags: latest
 
