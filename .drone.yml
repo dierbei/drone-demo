@@ -27,7 +27,7 @@ steps:
         from_secret: docker_password
 
   - name: deploy
-    image: plugins/drone-ssh
+    image: appleboy/drone-ssh
     host:
       - 175.24.198.168
     username: xiaolatiao
