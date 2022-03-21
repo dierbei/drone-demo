@@ -17,11 +17,15 @@ steps:
 #      - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
   - name: publish
-    image: plugins/docker
+    image: plugins/docker:18
+    auto_tag: true
+#    auto_tag_suffix: linux-amd64
+    dockerfile: Dockerfile
     repo: dierbei/drone-demo
-    dockerfile: ./Dockerfile
-#    auto_tag: true
-    secrets: [ docker_username, docker_password ]
+    username:
+      from_secret: docker_username
+      password:
+        from_secret: docker_password
 
 trigger:
   branch:
