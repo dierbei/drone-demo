@@ -14,10 +14,9 @@ steps:
       - echo $KEY
       - pwd
       - ls
-#      - CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
   - name: publish
-    image: plugins/docker:18
+    image: plugins/docker
     settings:
       dockerfile: Dockerfile
       username:
@@ -25,16 +24,7 @@ steps:
       password:
         from_secret: docker_password
       repo: dierbei/drone-demo
-      tags:
-        - latest
-        - '1.0.1'
-        - '1.0'
-#    auto_tag: true
-#    tags: latest
-#    auto_tag_suffix: linux-amd64
-
-#    repo: dierbei/drone-demo
-
+      tags: latest
 
 trigger:
   branch:
