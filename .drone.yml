@@ -26,6 +26,19 @@ steps:
       password:
         from_secret: docker_password
 
+  - name: deploy
+    image: appleboy/drone-ssh
+    host:
+      - 175.24.198.168
+    username: xiaolatiao
+    password: czc19990402.
+    port: 22
+    command_timeout: 300
+    script:
+      - docker pull dierbei/drone-demo:latest
+      - docker rm -f drone-demo || true
+      - docker run -d -p 8085:8085 --name drone-demo dierbei/drone-demo:latest
+
 trigger:
   branch:
     - master
