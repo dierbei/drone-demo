@@ -3,7 +3,7 @@ type: docker
 name: build
 steps:
   - name: build
-    image: golang:alpine
+    image: golang:1.16-alpine
     pull: if-not-exists # always never
     environment:
       KEY: VALUE
