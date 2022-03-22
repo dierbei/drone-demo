@@ -3,13 +3,10 @@ type: docker
 name: build
 steps:
   - name: build
-    image: golang:1.16-alpine
+    image: alpine:3.12
     pull: if-not-exists # always never
     environment:
       KEY: VALUE
-      GOOS: linux
-      GOARCH: amd64
-      GOPROXY: https://goproxy.cn
     commands:
       - echo $KEY
       - pwd
