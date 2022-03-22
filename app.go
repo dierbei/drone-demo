@@ -7,7 +7,9 @@ func main() {
 	r.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"name":    "hedui",
+			"age":     23,
 			"message": "Hello World!",
+			"hobby":   "simple is better",
 		})
 	})
 	r.Run(":8085")
